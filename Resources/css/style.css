@@ -614,6 +614,20 @@ button {
     box-shadow: 0 8px 32px rgba(168,177,255,.25);
 }
 
+    .profile-avatar.photo {
+        padding: 0;
+        overflow: hidden;
+        background: var(--bg2);
+    }
+
+        .profile-avatar.photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
     .profile-avatar.mini {
         width: 64px;
         height: 64px;
@@ -622,6 +636,34 @@ button {
         position: relative;
         flex-shrink: 0;
     }
+
+        .profile-avatar.mini.photo {
+            padding: 0;
+            overflow: hidden;
+            background: var(--bg2);
+            display: flex; /* override the block from .photo */
+        }
+
+            .profile-avatar.mini.photo img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+            }
+
+        .profile-avatar.mini .status-dot {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 14px;
+            height: 14px;
+            background: #22c55e;
+            border: 2px solid var(--bg2);
+            border-radius: 50%;
+            animation: pulse 2.5s infinite;
+            flex-shrink: 0;
+        }
 
 .status-online {
     position: absolute;
@@ -885,6 +927,56 @@ button {
     color: var(--text2);
     line-height: 1.65;
     flex: 1
+}
+
+.work-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    margin-bottom: .25rem;
+}
+
+.work-company-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .25rem .625rem;
+    border-radius: 999px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--text3);
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .07);
+    text-decoration: none;
+    transition: color .2s ease, background .2s ease, border-color .2s ease;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+    .work-company-badge svg {
+        flex-shrink: 0;
+        opacity: .5;
+        transition: opacity .2s ease;
+    }
+
+    .work-company-badge:hover {
+        color: var(--accent);
+        background: rgba(168, 177, 255, .08);
+        border-color: rgba(168, 177, 255, .2);
+    }
+
+        .work-company-badge:hover svg {
+            opacity: 1;
+        }
+
+@media (max-width: 480px) {
+    .work-company-badge {
+        font-size: 9px;
+        padding: .2rem .5rem;
+    }
 }
 
 /* Tags */
@@ -1410,8 +1502,8 @@ button {
 
 .action-grid {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: .75rem
+    grid-template-columns: repeat(3, 1fr);
+    gap: .75rem;
 }
 
 .action-card {
@@ -1483,6 +1575,21 @@ button {
 .action-icon.discord {
     background: rgba(139,92,246,.14);
     color: #c4b5fd
+}
+
+.action-icon.facebook {
+    background: rgba(24, 119, 242, .14);
+    color: #60a5fa;
+}
+
+.action-icon.youtube {
+    background: rgba(255, 0, 0, .13);
+    color: #f87171;
+}
+
+.action-icon.tiktok {
+    background: rgba(255, 255, 255, .07);
+    color: #e2e8f0;
 }
 
 .action-text {
@@ -1636,10 +1743,31 @@ button {
         border-radius: 15px
     }
 
+        .profile-avatar.photo {
+            padding: 0;
+            overflow: hidden;
+            background: var(--bg2);
+            display: block;
+        }
+
+            .profile-avatar.photo img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+            }
+
     .action-grid {
-        grid-template-columns: 1fr
+        grid-template-columns: repeat(2, 1fr);
     }
 
+    @media(max-width: 480px) {
+        .action-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+ 
     .metric-divider {
         display: none
     }
