@@ -1,0 +1,6 @@
+# Visual Studio local files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
