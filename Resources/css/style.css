@@ -609,7 +609,8 @@ button {
     .hero .container {
         padding-bottom: 0;
         position: relative;
-        z-index: 1
+        z-index: 1;
+        box-sizing: border-box
     }
 
 /* Full-width animated scan lines across entire hero */
@@ -2079,13 +2080,13 @@ button {
         height: calc(var(--nav-h) + 90px)
     }
 
-    /* Profile row — container handles horizontal padding */
+    /* Profile row — keep internal padding */
     .profile-row {
-        padding: 0 0 1rem
+        padding: 0 1rem 1rem
     }
 
     .bio-strip {
-        padding: .875rem 0 1.125rem;
+        padding: .875rem 1rem 1.125rem;
         border-radius: 0 0 var(--radius-lg) var(--radius-lg)
     }
 
@@ -2216,11 +2217,11 @@ button {
 
 @media(max-width: 480px) {
     .profile-row {
-        padding: 0 0 1rem
+        padding: 0 .875rem 1rem
     }
 
     .bio-strip {
-        padding: .75rem 0 1rem;
+        padding: .75rem .875rem 1rem;
         border-radius: 0 0 12px 12px
     }
 
