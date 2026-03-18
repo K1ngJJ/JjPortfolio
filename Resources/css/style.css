@@ -27,12 +27,16 @@ html {
     scroll-behavior: smooth
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%
+}
+
 body {
     font-family: 'DM Sans', sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden
+    line-height: 1.6
 }
 
 h1, h2, h3, h4 {
@@ -62,6 +66,17 @@ button {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5vw
+}
+
+/* Ensure minimum padding on very small screens */
+@media(max-width: 400px) {
+    .container {
+        padding: 0 16px
+    }
+
+    .nav {
+        padding: 0 16px
+    }
 }
 
 .section {
@@ -2064,9 +2079,14 @@ button {
         height: calc(var(--nav-h) + 90px)
     }
 
-    /* Profile row */
+    /* Profile row — container handles horizontal padding */
     .profile-row {
-        padding: 0 1rem 1rem
+        padding: 0 0 1rem
+    }
+
+    .bio-strip {
+        padding: .875rem 0 1.125rem;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg)
     }
 
     .profile-left {
@@ -2156,11 +2176,6 @@ button {
         }
 
     /* Bio strip */
-    .bio-strip {
-        padding: .875rem 1rem 1.125rem;
-        border-radius: 0 0 var(--radius-lg) var(--radius-lg)
-    }
-
     .bio-chips {
         gap: .375rem;
         margin-bottom: .625rem
@@ -2201,17 +2216,17 @@ button {
 
 @media(max-width: 480px) {
     .profile-row {
-        padding: 0 .875rem 1rem
+        padding: 0 0 1rem
+    }
+
+    .bio-strip {
+        padding: .75rem 0 1rem;
+        border-radius: 0 0 12px 12px
     }
 
     .cover-banner {
         height: calc(var(--nav-h) + 80px);
         border-radius: var(--radius-lg) var(--radius-lg) 0 0
-    }
-
-    .bio-strip {
-        padding: .75rem .875rem 1rem;
-        border-radius: 0 0 12px 12px
     }
 
     .profile-stats {
