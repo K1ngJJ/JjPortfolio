@@ -585,17 +585,97 @@ button {
 
 /* ===== HERO ===== */
 .hero {
-    padding-top: var(--nav-h)
+    padding-top: 0;
+    background: #0E0E0E;
+    position: relative;
+    overflow: hidden;
 }
 
     .hero .container {
         padding-bottom: 0;
-        padding-top: 1.5rem
+        position: relative;
+        z-index: 1
     }
+
+/* Full-width animated scan lines across entire hero */
+.hero-scan-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+    .hero-scan-lines span {
+        position: absolute;
+        height: 1px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, transparent 0%, transparent 10%, rgba(255,255,255,.12) 40%, rgba(255,255,255,.18) 50%, rgba(255,255,255,.12) 60%, transparent 90%, transparent 100%);
+        animation: heroScan 6s ease-in-out infinite;
+        opacity: 0;
+    }
+
+        .hero-scan-lines span:nth-child(1) {
+            top: 18%;
+            animation-delay: 0s;
+            animation-duration: 5.5s
+        }
+
+        .hero-scan-lines span:nth-child(2) {
+            top: 35%;
+            animation-delay: 1.2s;
+            animation-duration: 7s
+        }
+
+        .hero-scan-lines span:nth-child(3) {
+            top: 52%;
+            animation-delay: 2.4s;
+            animation-duration: 5s
+        }
+
+        .hero-scan-lines span:nth-child(4) {
+            top: 68%;
+            animation-delay: 0.6s;
+            animation-duration: 8s
+        }
+
+        .hero-scan-lines span:nth-child(5) {
+            top: 82%;
+            animation-delay: 3s;
+            animation-duration: 6s
+        }
+
+        .hero-scan-lines span:nth-child(6) {
+            top: 8%;
+            animation-delay: 1.8s;
+            animation-duration: 7.5s
+        }
+
+@keyframes heroScan {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%)
+    }
+
+    15% {
+        opacity: 1
+    }
+
+    85% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%)
+    }
+}
 
 .cover-banner {
     position: relative;
-    height: 160px;
+    height: calc(var(--nav-h) + 160px);
+    padding-top: var(--nav-h);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     overflow: hidden;
     background: linear-gradient(135deg, #111111 0%, #0E0E0E 50%, #141414 100%);
@@ -731,7 +811,7 @@ button {
 /* Avatar */
 .profile-avatar-wrap {
     position: relative;
-    margin-top: -44px;
+    margin-top: -48px;
     flex-shrink: 0
 }
 
@@ -1242,7 +1322,66 @@ button {
 
 /* ===== PROCESS ===== */
 .process {
-    background: var(--bg2)
+    background: var(--bg2);
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,.018) 28px, rgba(255,255,255,.018) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,.018) 28px, rgba(255,255,255,.018) 29px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shared animated scan lines for sections */
+.section-scan-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+    .section-scan-lines span {
+        position: absolute;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(168,177,255,.12), transparent);
+        animation: coverScan 5s ease-in-out infinite;
+    }
+
+        .section-scan-lines span:nth-child(1) {
+            width: 55%;
+            top: 20%;
+            left: -10%;
+            animation-delay: 0s;
+            animation-duration: 5s
+        }
+
+        .section-scan-lines span:nth-child(2) {
+            width: 35%;
+            top: 50%;
+            left: 25%;
+            animation-delay: 1.2s;
+            animation-duration: 6s
+        }
+
+        .section-scan-lines span:nth-child(3) {
+            width: 65%;
+            top: 75%;
+            left: -5%;
+            animation-delay: 2.5s;
+            animation-duration: 4.5s
+        }
+
+        .section-scan-lines span:nth-child(4) {
+            width: 40%;
+            top: 38%;
+            left: 40%;
+            animation-delay: 3.8s;
+            animation-duration: 5.5s
+        }
+
+/* Keep content above scan lines */
+.process .container,
+.metrics .container,
+.experience .container {
+    position: relative;
+    z-index: 1
 }
 
 .process-inner {
@@ -1298,8 +1437,11 @@ button {
 /* ===== METRICS ===== */
 .metrics {
     background: var(--bg3);
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,.02) 28px, rgba(255,255,255,.02) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,.02) 28px, rgba(255,255,255,.02) 29px);
     border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border)
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
 }
 
 .metrics-row {
@@ -1412,7 +1554,10 @@ button {
 
 /* ===== EXPERIENCE ===== */
 .experience {
-    background: var(--bg2)
+    background: var(--bg2);
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,.018) 28px, rgba(255,255,255,.018) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,.018) 28px, rgba(255,255,255,.018) 29px);
+    position: relative;
+    overflow: hidden;
 }
 
 .experience-timeline {
@@ -1490,9 +1635,10 @@ button {
 /* ===== CONTACT ===== */
 .contact {
     background: var(--bg);
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,.02) 28px, rgba(255,255,255,.02) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,.02) 28px, rgba(255,255,255,.02) 29px);
     position: relative;
     overflow: hidden;
-    padding-bottom: 0
+    padding-bottom: 0;
 }
 
     .contact::before {
@@ -1840,7 +1986,7 @@ button {
 
     /* Cover */
     .cover-banner {
-        height: 100px
+        height: calc(var(--nav-h) + 90px)
     }
 
     /* Profile row */
@@ -1936,7 +2082,8 @@ button {
 
     /* Bio strip */
     .bio-strip {
-        padding: .875rem 1rem 1.125rem
+        padding: .875rem 1rem 1.125rem;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg)
     }
 
     .bio-chips {
@@ -1983,8 +2130,8 @@ button {
     }
 
     .cover-banner {
-        height: 88px;
-        border-radius: 12px 12px 0 0
+        height: calc(var(--nav-h) + 80px);
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0
     }
 
     .bio-strip {
