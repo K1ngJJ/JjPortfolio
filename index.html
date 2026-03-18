@@ -36,29 +36,63 @@
         </button>
     </nav>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Drawer Menu -->
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
-                <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-        </button>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#stack">Stack</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="mobile-menu-footer">
-            <span class="nav-status">
-                <span class="nav-status-dot"></span>
+
+        <!-- Profile strip -->
+        <div class="mm-profile">
+            <div class="mm-avatar">
+                <span>JJ</span>
+                <div class="mm-dot"></div>
+            </div>
+            <div class="mm-info">
+                <span class="mm-name">Jay Jay Pacheco</span>
+                <span class="mm-role">Software Engineer</span>
+            </div>
+            <div class="mm-badge">
+                <span class="mm-badge-dot"></span>
                 Open to work
-            </span>
+            </div>
         </div>
+
+        <!-- Nav links -->
+        <nav class="mm-nav">
+            <a href="#about" class="mm-link">
+                <span class="mm-num">01</span>
+                <span class="mm-label">About</span>
+                <svg class="mm-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+            <a href="#work" class="mm-link">
+                <span class="mm-num">02</span>
+                <span class="mm-label">Work</span>
+                <svg class="mm-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+            <a href="#stack" class="mm-link">
+                <span class="mm-num">03</span>
+                <span class="mm-label">Stack</span>
+                <svg class="mm-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+            <a href="#contact" class="mm-link">
+                <span class="mm-num">04</span>
+                <span class="mm-label">Contact</span>
+                <svg class="mm-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+        </nav>
+
+        <!-- Bottom CTA row -->
+        <div class="mm-actions">
+            <a href="#" class="mm-btn mm-btn-ghost" download>Download CV</a>
+            <a href="#contact" class="mm-btn mm-btn-primary">Hire me →</a>
+        </div>
+
     </div>
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="home">
+        <!-- Full-width scan lines behind everything -->
+        <div class="hero-scan-lines" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
         <div class="container">
             <div class="cover-banner">
                 <div class="cover-bg-pattern"></div>
@@ -74,10 +108,8 @@
                 <div class="profile-left">
                     <div class="profile-avatar-wrap">
                         <div class="profile-avatar photo">
-                            <img src="Resources/files/me_1.jpg"
-                                 alt="Jay Jay Pacheco">
+                            <img src="Resources/files/me_1.jpg" alt="Jay Jay Pacheco">
                         </div>
-                        <!--<div class="profile-avatar"><span>JJ</span></div>-->
                         <div class="status-online" title="Available"></div>
                     </div>
                     <div class="profile-meta">
@@ -129,6 +161,7 @@
                 <p>Specialized in frontend, but I build with the full system in mind — from APIs to deployment.</p>
             </div>
             <div class="skills-cards">
+
                 <div class="skill-card">
                     <div class="skill-icon icon-blue">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -139,6 +172,7 @@
                     <h3>Frontend</h3>
                     <p>HTML5 • CSS3 • Bootstrap 5.3 • Tailwind CSS • Responsive Design</p>
                 </div>
+
                 <div class="skill-card">
                     <div class="skill-icon icon-purple">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -149,6 +183,7 @@
                     <h3>Design Systems</h3>
                     <p>Icon Systems • Dark / Light Mode • Material UI • Headless UI • Docs</p>
                 </div>
+
                 <div class="skill-card">
                     <div class="skill-icon icon-teal">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -159,6 +194,7 @@
                     <h3>Backend &amp; APIs</h3>
                     <p>C# • ASP.NET Core • MySQL • Entity Framework Core</p>
                 </div>
+
                 <div class="skill-card">
                     <div class="skill-icon icon-amber">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -168,6 +204,19 @@
                     <h3>Tooling &amp; CI/CD</h3>
                     <p>Git &amp; GitHub • GitHub Actions • Visual Studio Community • VS Code • AWS</p>
                 </div>
+
+                <!-- NEW: QA & Optimization -->
+                <div class="skill-card">
+                    <div class="skill-icon icon-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 11l3 3L22 4" />
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                        </svg>
+                    </div>
+                    <h3>QA &amp; Optimization</h3>
+                    <p>Quality Assurance Testing • UI/UX Optimization • Web Debugging • Performance Tuning</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -177,8 +226,8 @@
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">Selected Work</span>
-                <h2>Projects I've shipped</h2>
-                <p>Real-world systems built for local government, healthcare, tourism, and enterprise clients across Oriental Mindoro.</p>
+                <h2>Projects I've contributed to</h2>
+                <p>As part of the team at <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer" class="inline-link">ITDC Systems</a>, I helped design, develop, and ship these real-world platforms for government, healthcare, tourism, and enterprise clients across Oriental Mindoro.</p>
             </div>
             <div class="work-cards-grid">
 
@@ -190,8 +239,7 @@
                                 <path d="M2 12h20M12 2a15 15 0 0 1 0 20A15 15 0 0 1 12 2z" />
                             </svg>
                         </div>
-                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer"
-                           class="work-company-badge" title="ITDC Systems">
+                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer" class="work-company-badge" title="ITDC Systems">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                                 <rect x="1" y="1" width="22" height="22" rx="5" fill="#0D3A6E" />
                                 <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" />
@@ -204,9 +252,9 @@
                     <h3>Roxas — Government Web Portal</h3>
                     <p>Official website and CMS for the Municipality of Roxas, Oriental Mindoro. Features public info pages, news publishing, and a CMS for LGU staff.</p>
                     <div class="tags">
-                        <span class="tag tag-blue">Web Portal</span>
-                        <span class="tag tag-blue">CMS</span>
-                        <span class="tag tag-blue">LGU</span>
+                        <span class="tag tag-mono">Web Portal</span>
+                        <span class="tag tag-mono">CMS</span>
+                        <span class="tag tag-mono">LGU</span>
                     </div>
                 </div>
 
@@ -217,8 +265,7 @@
                                 <path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
                             </svg>
                         </div>
-                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer"
-                           class="work-company-badge" title="ITDC Systems">
+                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer" class="work-company-badge" title="ITDC Systems">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                                 <rect x="1" y="1" width="22" height="22" rx="5" fill="#0D3A6E" />
                                 <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" />
@@ -231,9 +278,9 @@
                     <h3>Pentos LMS — Legislative Management</h3>
                     <p>Legislative tracking platform for the Sangguniang Bayan of Naujan. Handles ordinances, resolutions, committee records, and session management.</p>
                     <div class="tags">
-                        <span class="tag tag-purple">LMS</span>
-                        <span class="tag tag-purple">Government</span>
-                        <span class="tag tag-purple">Records</span>
+                        <span class="tag tag-mono">LMS</span>
+                        <span class="tag tag-mono">Government</span>
+                        <span class="tag tag-mono">Records</span>
                     </div>
                 </div>
 
@@ -245,8 +292,7 @@
                                 <path d="M8 21h8M12 17v4M7 8h2M7 12h10M13 8h4" />
                             </svg>
                         </div>
-                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer"
-                           class="work-company-badge" title="ITDC Systems">
+                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer" class="work-company-badge" title="ITDC Systems">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                                 <rect x="1" y="1" width="22" height="22" rx="5" fill="#0D3A6E" />
                                 <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" />
@@ -259,9 +305,9 @@
                     <h3>Numera — Accounting System</h3>
                     <p>Full-featured accounting and financial management for Smith Brothers. Manages journal entries, A/P &amp; A/R, reporting, and multi-branch operations.</p>
                     <div class="tags">
-                        <span class="tag tag-teal">Accounting</span>
-                        <span class="tag tag-teal">Finance</span>
-                        <span class="tag tag-teal">Enterprise</span>
+                        <span class="tag tag-mono">Accounting</span>
+                        <span class="tag tag-mono">Finance</span>
+                        <span class="tag tag-mono">Enterprise</span>
                     </div>
                 </div>
 
@@ -272,8 +318,7 @@
                                 <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                             </svg>
                         </div>
-                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer"
-                           class="work-company-badge" title="ITDC Systems">
+                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer" class="work-company-badge" title="ITDC Systems">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                                 <rect x="1" y="1" width="22" height="22" rx="5" fill="#0D3A6E" />
                                 <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" />
@@ -286,9 +331,9 @@
                     <h3>NovaOpsEcho — CARES Health Portal</h3>
                     <p>Healthcare operations platform for the Roxas community. Manages patient records, health service scheduling, and public health monitoring for the LGU.</p>
                     <div class="tags">
-                        <span class="tag tag-coral">Healthcare</span>
-                        <span class="tag tag-coral">Operations</span>
-                        <span class="tag tag-coral">LGU</span>
+                        <span class="tag tag-mono">Healthcare</span>
+                        <span class="tag tag-mono">Operations</span>
+                        <span class="tag tag-mono">LGU</span>
                     </div>
                 </div>
 
@@ -300,8 +345,7 @@
                                 <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07" />
                             </svg>
                         </div>
-                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer"
-                           class="work-company-badge" title="ITDC Systems">
+                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer" class="work-company-badge" title="ITDC Systems">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                                 <rect x="1" y="1" width="22" height="22" rx="5" fill="#0D3A6E" />
                                 <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" />
@@ -314,9 +358,9 @@
                     <h3>Lakbay — Tourism Portal</h3>
                     <p>Official tourism website and application for Oriental Mindoro province. Showcases destinations, local attractions, travel guides, and events to promote regional tourism.</p>
                     <div class="tags">
-                        <span class="tag tag-green">Tourism</span>
-                        <span class="tag tag-green">Government</span>
-                        <span class="tag tag-green">Web Portal</span>
+                        <span class="tag tag-mono">Tourism</span>
+                        <span class="tag tag-mono">Government</span>
+                        <span class="tag tag-mono">Web Portal</span>
                     </div>
                 </div>
 
@@ -327,8 +371,7 @@
                                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                             </svg>
                         </div>
-                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer"
-                           class="work-company-badge" title="ITDC Systems">
+                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer" class="work-company-badge" title="ITDC Systems">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                                 <rect x="1" y="1" width="22" height="22" rx="5" fill="#0D3A6E" />
                                 <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" />
@@ -341,9 +384,9 @@
                     <h3>LGU Core + Connect — Gov Platform</h3>
                     <p>Dual-platform system: Core handles internal operations; Connect serves as a citizen-facing portal for public services and requests.</p>
                     <div class="tags">
-                        <span class="tag tag-amber">Gov Platform</span>
-                        <span class="tag tag-amber">Citizen Services</span>
-                        <span class="tag tag-amber">Integrated</span>
+                        <span class="tag tag-mono">Gov Platform</span>
+                        <span class="tag tag-mono">Citizen Services</span>
+                        <span class="tag tag-mono">Integrated</span>
                     </div>
                 </div>
 
@@ -355,8 +398,7 @@
                                 <path d="M3 9h18M9 21V9M7 15h2M7 18h2M12 12h5M12 15h3M12 18h1" />
                             </svg>
                         </div>
-                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer"
-                           class="work-company-badge" title="ITDC Systems">
+                        <a href="https://www.itdcsystems.com" target="_blank" rel="noopener noreferrer" class="work-company-badge" title="ITDC Systems">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                                 <rect x="1" y="1" width="22" height="22" rx="5" fill="#0D3A6E" />
                                 <rect x="4.5" y="4.5" width="15" height="15" rx="3.5" fill="white" />
@@ -369,9 +411,9 @@
                     <h3>Power BI — Business Dashboard</h3>
                     <p>Enterprise analytics dashboard backed by SQL Server and deployed via on-premises data gateway. Delivers real-time KPIs and executive reporting.</p>
                     <div class="tags">
-                        <span class="tag tag-pink">Power BI</span>
-                        <span class="tag tag-pink">SQL Server</span>
-                        <span class="tag tag-pink">Analytics</span>
+                        <span class="tag tag-mono">Power BI</span>
+                        <span class="tag tag-mono">SQL Server</span>
+                        <span class="tag tag-mono">Analytics</span>
                     </div>
                 </div>
 
@@ -381,6 +423,9 @@
 
     <!-- ===== PROCESS ===== -->
     <section class="process section" id="process">
+        <div class="section-scan-lines">
+            <span></span><span></span><span></span><span></span>
+        </div>
         <div class="container">
             <div class="process-inner">
                 <div class="process-text">
@@ -408,6 +453,9 @@
 
     <!-- ===== METRICS ===== -->
     <section class="metrics section">
+        <div class="section-scan-lines">
+            <span></span><span></span><span></span><span></span>
+        </div>
         <div class="container">
             <div class="metrics-row">
                 <div class="metric-item">
@@ -417,12 +465,12 @@
                 <div class="metric-divider"></div>
                 <div class="metric-item">
                     <div class="metric-val"><span class="metric-n" data-target="5">0</span><span class="metric-sfx">+</span></div>
-                    <p>real-world projects shipped across Oriental Mindoro</p>
+                    <p>real-world projects contributed to across Oriental Mindoro</p>
                 </div>
                 <div class="metric-divider"></div>
                 <div class="metric-item">
                     <div class="metric-val"><span class="metric-n" data-target="7">0</span><span class="metric-sfx"></span></div>
-                    <p>LGU clients served with custom government systems</p>
+                    <p>LGU clients served through ITDC Systems projects</p>
                 </div>
             </div>
         </div>
@@ -488,6 +536,9 @@
 
     <!-- ===== EXPERIENCE ===== -->
     <section class="experience section" id="experience">
+        <div class="section-scan-lines">
+            <span></span><span></span><span></span><span></span>
+        </div>
         <div class="container">
             <div class="section-header">
                 <span class="eyebrow">Experience</span>
@@ -532,7 +583,6 @@
                     <div class="profile-header">
                         <div class="profile-avatar mini photo">
                             <img src="Resources/files/me_2.jpg" alt="Jay Jay Pacheco">
-                            <!--<span>JJ</span>-->
                             <div class="status-dot"></div>
                         </div>
                         <div class="profile-info">
@@ -562,7 +612,7 @@
                     <h3>Let's connect</h3>
                     <p>Open for internships, freelance projects, and collaborations.</p>
                     <div class="action-grid">
-                        <a href="mailto:your@email.com" class="action-card">
+                        <a href="mailto:pachecokingjj@email.com" class="action-card">
                             <div class="action-icon email">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -571,13 +621,13 @@
                             </div>
                             <div class="action-text"><span class="action-title">Email</span><span class="action-desc">pachecokingjj@email.com</span></div>
                         </a>
-                        <a href="https://github.com/K1ngJJ" class="action-card">
+                        <a href="https://github.com/K1ngJJ" target="_blank" rel="noopener noreferrer" class="action-card">
                             <div class="action-icon github">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
                             </div>
                             <div class="action-text"><span class="action-title">GitHub</span><span class="action-desc">@K1ngJJ</span></div>
                         </a>
-                        <a href="https://www.linkedin.com/in/king-jay-jay-pacheco-a9b865370" class="action-card">
+                        <a href="https://www.linkedin.com/in/king-jay-jay-pacheco-a9b865370" target="_blank" rel="noopener noreferrer" class="action-card">
                             <div class="action-icon linkedin">
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                             </div>
@@ -606,49 +656,43 @@
                             </div>
                             <div class="action-text"><span class="action-title">Discord</span><span class="action-desc" id="discord-text">Click to copy</span></div>
                         </button>
-
                         <a href="https://www.facebook.com/zrnjj" target="_blank" rel="noopener noreferrer" class="action-card">
                             <div class="action-icon facebook">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
                             </div>
                             <div class="action-text"><span class="action-title">Facebook</span><span class="action-desc">Jay Jay Pacheco</span></div>
                         </a>
-
                         <a href="https://youtube.com/@zrn-jj" target="_blank" rel="noopener noreferrer" class="action-card">
                             <div class="action-icon youtube">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
                             </div>
                             <div class="action-text"><span class="action-title">YouTube</span><span class="action-desc">@zrn-jj</span></div>
                         </a>
-
                         <a href="https://www.tiktok.com/@zrnjj" target="_blank" rel="noopener noreferrer" class="action-card">
                             <div class="action-icon tiktok">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" /></svg>
                             </div>
                             <div class="action-text"><span class="action-title">TikTok</span><span class="action-desc">@zrnjj</span></div>
                         </a>
-
                     </div>
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <p>© 2026 Jay Jay Pacheco. Built with precision.</p>
-                    <div class="footer-tech">
-                        <span>HTML5</span><span>•</span><span>CSS3</span><span>•</span><span>Vanilla JS</span>
-                    </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-scan-lines">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2026 Jay Jay Pacheco. Built with precision.</p>
+                <div class="footer-tech">
+                    <span>HTML5</span><span>•</span><span>CSS3</span><span>•</span><span>Vanilla JS</span>
                 </div>
             </div>
-        </footer>
-    </section>
+        </div>
+    </footer>
 
     <script src="Resources/js/script.js"></script>
 </body>
