@@ -1,4 +1,4 @@
-/* ===== CSS Variables — Monochrome theme ===== */
+/* ===== CSS Variables — Dark theme (default) ===== */
 :root {
     --bg: #0A0A0A;
     --bg2: #111111;
@@ -14,6 +14,24 @@
     --radius-lg: 22px;
     --trans: all 0.25s ease;
     --nav-h: 50px;
+    --photo-filter: none;
+    --photo-filter-contact: none;
+}
+
+/* ===== Light Mode ===== */
+[data-theme="light"] {
+    --bg: #F8F8F8;
+    --bg2: #FFFFFF;
+    --bg3: #F0F0F0;
+    --accent: #5B65D9;
+    --accent2: #4B54C4;
+    --text: #0A0A0A;
+    --text2: #555555;
+    --text3: #999999;
+    --border: rgba(0,0,0,0.08);
+    --border2: rgba(0,0,0,0.18);
+    --photo-filter: brightness(1.05) contrast(1.02);
+    --photo-filter-contact: brightness(1.05) contrast(1.02);
 }
 
 /* ===== Reset ===== */
@@ -98,7 +116,7 @@ button {
 }
 
     .section-header h2 {
-        font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+        font-size: clamp(1.4rem, 2.8vw, 2.1rem);
         letter-spacing: -.02em;
         margin-bottom: .75rem
     }
@@ -126,18 +144,19 @@ button {
     display: inline-flex;
     align-items: center;
     gap: .5rem;
-    padding: .7rem 1.35rem;
+    padding: .65rem 1.25rem;
     border-radius: 10px;
     font-weight: 500;
-    font-size: .9rem;
+    font-size: .875rem;
     transition: var(--trans);
     border: none;
+    white-space: nowrap;
 }
 
 .btn-primary {
     background: rgba(255,255,255,.1);
     border: 1px solid rgba(255,255,255,.2);
-    color: var(--text);
+    color: var(--text)
 }
 
     .btn-primary:hover {
@@ -146,16 +165,100 @@ button {
         transform: translateY(-2px)
     }
 
+/* Email — accent filled, most prominent */
+.btn-email {
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: #0A0A0A;
+    font-weight: 700
+}
+
+    .btn-email:hover {
+        opacity: .88;
+        transform: translateY(-2px)
+    }
+
+[data-theme="light"] .btn-email {
+    color: #fff
+}
+
+/* Contact — accent tinted */
+.btn-cta {
+    background: rgba(168,177,255,.15);
+    border: 1px solid rgba(168,177,255,.3);
+    color: var(--accent)
+}
+
+    .btn-cta:hover {
+        background: rgba(168,177,255,.25);
+        border-color: rgba(168,177,255,.5);
+        transform: translateY(-2px)
+    }
+
+[data-theme="light"] .btn-cta {
+    background: rgba(91,101,217,.12);
+    border-color: rgba(91,101,217,.3);
+    color: var(--accent)
+}
+
+/* Ghost small — for View Work */
 .btn-ghost {
     background: transparent;
-    border: 1px solid rgba(255,255,255,.12);
-    color: var(--text2)
+    border: 1px solid var(--border2);
+    color: var(--text2);
+    font-size: .8rem;
+    padding: .55rem 1rem
 }
 
     .btn-ghost:hover {
         background: rgba(255,255,255,.06);
         color: var(--text)
     }
+
+[data-theme="light"] .btn-ghost {
+    border-color: rgba(0,0,0,.18);
+    color: var(--text2)
+}
+
+    [data-theme="light"] .btn-ghost:hover {
+        background: rgba(0,0,0,.05);
+        color: var(--text)
+    }
+
+/* View Work — compact ghost shortcut, same height as other btns */
+.btn-work-shortcut {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .65rem 1rem;
+    border-radius: 10px;
+    flex-shrink: 0;
+    background: rgba(255,255,255,.06);
+    border: 1px solid var(--border2);
+    color: var(--text2);
+    font-size: .875rem;
+    font-weight: 500;
+    transition: var(--trans);
+    white-space: nowrap;
+}
+
+    .btn-work-shortcut:hover {
+        background: rgba(255,255,255,.12);
+        color: var(--text);
+        transform: translateY(-2px)
+    }
+
+[data-theme="light"] .btn-work-shortcut {
+    background: rgba(0,0,0,.05);
+    border-color: rgba(0,0,0,.15);
+    color: #555
+}
+
+    [data-theme="light"] .btn-work-shortcut:hover {
+        background: rgba(0,0,0,.1);
+        color: #111
+    }
+
 
 /* ===== NAV ===== */
 .nav {
@@ -321,6 +424,87 @@ button {
     .nav-cta:active {
         transform: translateY(0)
     }
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--trans);
+    flex-shrink: 0;
+}
+
+    .theme-toggle:hover {
+        background: rgba(255,255,255,.12);
+        color: var(--text);
+        border-color: var(--border2)
+    }
+
+/* Mobile toggle — inside cover banner, always visible */
+.theme-toggle-mobile {
+    display: flex;
+    width: auto;
+    height: auto;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+    color: var(--text2);
+    gap: 5px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+}
+
+@media(max-width: 768px) {
+    .theme-toggle:not(.theme-toggle-mobile) {
+        position: fixed;
+        top: calc((var(--nav-h) - 34px) / 2);
+        right: calc(5vw + 48px);
+        z-index: 1001;
+        display: flex;
+    }
+}
+
+.icon-sun {
+    display: none
+}
+
+.icon-moon {
+    display: block
+}
+
+[data-theme="light"] .icon-sun {
+    display: block
+}
+
+[data-theme="light"] .icon-moon {
+    display: none
+}
+
+[data-theme="light"] .theme-toggle {
+    background: rgba(0,0,0,.05);
+    border-color: rgba(0,0,0,.1);
+    color: var(--text2)
+}
+
+    [data-theme="light"] .theme-toggle:hover {
+        background: rgba(0,0,0,.09);
+        color: var(--text)
+    }
+
+[data-theme="light"] .theme-toggle-mobile {
+    background: rgba(0,0,0,.06);
+    border-color: rgba(0,0,0,.12)
+}
 
 /* ===== HAMBURGER ===== */
 .nav-toggle {
@@ -614,6 +798,24 @@ button {
     .nav-toggle {
         display: flex
     }
+
+    .theme-toggle {
+        display: flex;
+        order: 2
+    }
+
+    .nav-toggle {
+        order: 3
+    }
+
+    .nav-logo {
+        order: 1
+    }
+
+    .nav {
+        display: flex;
+        align-items: center
+    }
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -887,6 +1089,8 @@ button {
             object-fit: cover;
             object-position: 50% 20%;
             display: block;
+            filter: var(--photo-filter);
+            transition: filter .4s ease;
         }
 
     .profile-avatar.mini {
@@ -913,6 +1117,8 @@ button {
                 object-position: center top;
                 display: block;
                 border-radius: 14px;
+                filter: var(--photo-filter-contact);
+                transition: filter .4s ease;
             }
 
         .profile-avatar.mini .status-dot {
@@ -970,7 +1176,7 @@ button {
 }
 
 .profile-name {
-    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-size: clamp(1rem, 2vw, 1.4rem);
     letter-spacing: -.02em;
     margin-bottom: .2rem;
     line-height: 1.15
@@ -978,7 +1184,7 @@ button {
 
 .profile-role {
     color: var(--accent);
-    font-size: .875rem;
+    font-size: .8rem;
     font-weight: 500;
     margin-bottom: .35rem
 }
@@ -1436,7 +1642,7 @@ button {
 }
 
 .process-text h2 {
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-size: clamp(1.3rem, 2.5vw, 1.9rem);
     letter-spacing: -.02em;
     margin-bottom: .875rem
 }
@@ -2190,19 +2396,34 @@ button {
         font-size: .6rem
     }
 
-    /* Buttons stretch full width */
+    /* Buttons — email stretches, contact+work become square icons */
     .hero-btns {
         width: 100%;
-        gap: .625rem;
+        gap: .5rem;
         flex-shrink: 0;
+        align-items: center
     }
 
-        .hero-btns .btn {
+        .hero-btns .btn-email {
             flex: 1;
             justify-content: center;
             padding: .65rem 1rem;
-            font-size: .875rem;
+            font-size: .875rem
         }
+
+        .hero-btns .btn-cta,
+        .hero-btns .btn-work-shortcut {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            justify-content: center;
+            gap: 0
+        }
+
+    .btn-text-hide {
+        display: none
+    }
 
     /* Bio strip */
     .bio-chips {
@@ -2274,6 +2495,510 @@ button {
         grid-template-columns: 1fr
     }
 }
+/* ===== LIGHT MODE OVERRIDES ===== */
+[data-theme="light"] {
+    background: var(--bg);
+}
+
+    [data-theme="light"] .nav {
+        background: rgba(248,248,248,.92);
+        border-bottom-color: rgba(0,0,0,.1);
+    }
+
+    [data-theme="light"] .nav-logo {
+        color: var(--text)
+    }
+
+    [data-theme="light"] .nav-links a {
+        color: var(--text2)
+    }
+
+        [data-theme="light"] .nav-links a:hover, [data-theme="light"] .nav-links a.active {
+            color: var(--text);
+            background: rgba(0,0,0,.05)
+        }
+
+    [data-theme="light"] .nav-cta {
+        background: rgba(0,0,0,.07);
+        border-color: rgba(0,0,0,.15);
+        color: var(--text)
+    }
+
+        [data-theme="light"] .nav-cta:hover {
+            background: rgba(0,0,0,.12);
+            border-color: rgba(0,0,0,.25)
+        }
+
+    [data-theme="light"] .nav-status {
+        background: rgba(0,0,0,.04);
+        border-color: rgba(0,0,0,.08)
+    }
+
+    [data-theme="light"] .ham-line {
+        background: var(--text)
+    }
+
+    [data-theme="light"] .hero {
+        background: #F0F0F0
+    }
+
+    [data-theme="light"] .cover-banner {
+        background: linear-gradient(135deg, #E8E8E8 0%, #EFEFEF 50%, #E5E5E5 100%);
+        border-color: rgba(0,0,0,.1)
+    }
+
+    [data-theme="light"] .cover-bg-pattern {
+        background-image: radial-gradient(circle at 20% 50%, rgba(0,0,0,.02) 0%, transparent 50%), radial-gradient(circle at 80% 30%, rgba(0,0,0,.015) 0%, transparent 50%), repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px)
+    }
+
+    [data-theme="light"] .cover-lines span {
+        background: linear-gradient(90deg, transparent, rgba(0,0,0,.08), transparent)
+    }
+
+    [data-theme="light"] .hero-scan-lines span {
+        background: linear-gradient(90deg, transparent 0%, transparent 10%, rgba(0,0,0,.06) 40%, rgba(0,0,0,.1) 50%, rgba(0,0,0,.06) 60%, transparent 90%, transparent 100%)
+    }
+
+    [data-theme="light"] .cover-tag {
+        background: rgba(0,0,0,.06);
+        border-color: rgba(0,0,0,.1);
+        color: var(--text2)
+    }
+
+    [data-theme="light"] .cover-tag-mono {
+        background: rgba(255,255,255,.6);
+        border-color: rgba(0,0,0,.06);
+        color: var(--text3)
+    }
+
+    [data-theme="light"] .profile-row {
+        background: #fff;
+        border-color: rgba(0,0,0,.1)
+    }
+
+    [data-theme="light"] .bio-strip {
+        background: #fff;
+        border-color: rgba(0,0,0,.1)
+    }
+
+    [data-theme="light"] .skill-card, [data-theme="light"] .work-card, [data-theme="light"] .stack-item {
+        background: #fff;
+        border-color: rgba(0,0,0,.09)
+    }
+
+        [data-theme="light"] .skill-card:hover, [data-theme="light"] .work-card:hover, [data-theme="light"] .stack-item:hover {
+            background: #F8F8F8;
+            border-color: rgba(0,0,0,.18)
+        }
+
+    [data-theme="light"] .process {
+        background: #EFEFEF;
+        background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px)
+    }
+
+    [data-theme="light"] .metrics {
+        background: #E8E8E8;
+        background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px);
+        border-color: rgba(0,0,0,.1)
+    }
+
+    [data-theme="light"] .experience {
+        background: #EFEFEF;
+        background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px)
+    }
+
+    [data-theme="light"] .section-scan-lines span {
+        background: linear-gradient(90deg, transparent, rgba(0,0,0,.07), transparent)
+    }
+
+    [data-theme="light"] .experience-card {
+        background: rgba(255,255,255,.7);
+        border-color: rgba(0,0,0,.09)
+    }
+
+    [data-theme="light"] .contact {
+        background: var(--bg);
+        background-image: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px), repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px)
+    }
+
+    [data-theme="light"] .profile-card, [data-theme="light"] .action-card {
+        background: #fff;
+        border-color: rgba(0,0,0,.09)
+    }
+
+        [data-theme="light"] .action-card:hover {
+            background: #F5F5F5;
+            border-color: rgba(0,0,0,.18)
+        }
+
+    [data-theme="light"] .mobile-menu {
+        background: #fff;
+        border-color: rgba(0,0,0,.1)
+    }
+
+    [data-theme="light"] .mm-profile {
+        border-color: rgba(0,0,0,.08)
+    }
+
+    [data-theme="light"] .mm-link:hover {
+        background: rgba(0,0,0,.04);
+        color: var(--text)
+    }
+
+    [data-theme="light"] .mm-actions {
+        border-color: rgba(0,0,0,.08)
+    }
+
+    [data-theme="light"] .footer {
+        background: #E8E8E8
+    }
+
+    [data-theme="light"] .footer-scan-lines span {
+        background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.12) 50%, transparent 100%)
+    }
+
+    [data-theme="light"] .chip {
+        background: rgba(0,0,0,.06);
+        border-color: rgba(0,0,0,.12);
+        color: #333
+    }
+
+    [data-theme="light"] .chip-green {
+        background: rgba(22,163,74,.12);
+        border-color: rgba(22,163,74,.3);
+        color: #15803d
+    }
+
+    [data-theme="light"] .chip-age {
+        background: rgba(0,0,0,.06);
+        border-color: rgba(0,0,0,.12);
+        color: #555
+    }
+
+    [data-theme="light"] .badge {
+        background: rgba(0,0,0,.07);
+        border-color: rgba(0,0,0,.15);
+        color: #333
+    }
+
+    [data-theme="light"] .badge-green {
+        background: rgba(22,163,74,.12);
+        border-color: rgba(22,163,74,.3);
+        color: #15803d
+    }
+
+    [data-theme="light"] .toast {
+        background: rgba(255,255,255,.96);
+        border-color: rgba(0,0,0,.15)
+    }
+
+    [data-theme="light"] .mm-avatar {
+        border-color: rgba(0,0,0,.18)
+    }
+
+    /* Icon backgrounds — richer in light mode */
+    [data-theme="light"] .icon-blue {
+        background: rgba(59,130,246,.15)
+    }
+
+        [data-theme="light"] .icon-blue svg {
+            stroke: #2563eb
+        }
+
+    [data-theme="light"] .icon-purple {
+        background: rgba(139,92,246,.15)
+    }
+
+        [data-theme="light"] .icon-purple svg {
+            stroke: #7c3aed
+        }
+
+    [data-theme="light"] .icon-teal {
+        background: rgba(20,184,166,.15)
+    }
+
+        [data-theme="light"] .icon-teal svg {
+            stroke: #0d9488
+        }
+
+    [data-theme="light"] .icon-coral {
+        background: rgba(239,68,68,.15)
+    }
+
+        [data-theme="light"] .icon-coral svg {
+            stroke: #dc2626
+        }
+
+    [data-theme="light"] .icon-green {
+        background: rgba(34,197,94,.15)
+    }
+
+        [data-theme="light"] .icon-green svg {
+            stroke: #16a34a
+        }
+
+    [data-theme="light"] .icon-amber {
+        background: rgba(245,158,11,.15)
+    }
+
+        [data-theme="light"] .icon-amber svg {
+            stroke: #d97706
+        }
+
+    [data-theme="light"] .icon-pink {
+        background: rgba(236,72,153,.15)
+    }
+
+        [data-theme="light"] .icon-pink svg {
+            stroke: #db2777
+        }
+
+    [data-theme="light"] .icon-slate {
+        background: rgba(0,0,0,.07)
+    }
+
+        [data-theme="light"] .icon-slate svg {
+            stroke: #555
+        }
+
+    /* Tags — visible in light mode */
+    [data-theme="light"] .tag-mono {
+        background: rgba(0,0,0,.06);
+        border-color: rgba(0,0,0,.12);
+        color: #444
+    }
+
+    [data-theme="light"] .tag-blue {
+        background: rgba(59,130,246,.1);
+        border-color: rgba(59,130,246,.25);
+        color: #1d4ed8
+    }
+
+    [data-theme="light"] .tag-purple {
+        background: rgba(139,92,246,.1);
+        border-color: rgba(139,92,246,.25);
+        color: #6d28d9
+    }
+
+    [data-theme="light"] .tag-teal {
+        background: rgba(20,184,166,.1);
+        border-color: rgba(20,184,166,.25);
+        color: #0f766e
+    }
+
+    [data-theme="light"] .tag-coral {
+        background: rgba(239,68,68,.1);
+        border-color: rgba(239,68,68,.25);
+        color: #b91c1c
+    }
+
+    [data-theme="light"] .tag-green {
+        background: rgba(34,197,94,.1);
+        border-color: rgba(34,197,94,.25);
+        color: #15803d
+    }
+
+    [data-theme="light"] .tag-amber {
+        background: rgba(245,158,11,.1);
+        border-color: rgba(245,158,11,.25);
+        color: #b45309
+    }
+
+    [data-theme="light"] .tag-pink {
+        background: rgba(236,72,153,.1);
+        border-color: rgba(236,72,153,.25);
+        color: #be185d
+    }
+
+    /* Contact action icons — richer in light mode */
+    [data-theme="light"] .action-icon.email {
+        background: rgba(59,130,246,.12);
+        color: #2563eb
+    }
+
+    [data-theme="light"] .action-icon.github {
+        background: rgba(91,101,217,.12);
+        color: #4b54c4
+    }
+
+    [data-theme="light"] .action-icon.linkedin {
+        background: rgba(59,130,246,.12);
+        color: #1d4ed8
+    }
+
+    [data-theme="light"] .action-icon.twitter {
+        background: rgba(14,165,233,.12);
+        color: #0284c7
+    }
+
+    [data-theme="light"] .action-icon.resume {
+        background: rgba(22,163,74,.12);
+        color: #15803d
+    }
+
+    [data-theme="light"] .action-icon.discord {
+        background: rgba(124,58,237,.12);
+        color: #6d28d9
+    }
+
+    [data-theme="light"] .action-icon.facebook {
+        background: rgba(24,119,242,.12);
+        color: #1d4ed8
+    }
+
+    [data-theme="light"] .action-icon.youtube {
+        background: rgba(220,38,38,.12);
+        color: #b91c1c
+    }
+
+    [data-theme="light"] .action-icon.tiktok {
+        background: rgba(0,0,0,.07);
+        color: #333
+    }
+
+    /* Action titles and descriptions */
+    [data-theme="light"] .action-title {
+        color: #111
+    }
+
+    [data-theme="light"] .action-desc {
+        color: #555
+    }
+
+    /* Work company badge */
+    [data-theme="light"] .work-company-badge {
+        background: rgba(0,0,0,.05);
+        border-color: rgba(0,0,0,.1);
+        color: #555
+    }
+
+        [data-theme="light"] .work-company-badge:hover {
+            color: var(--accent);
+            background: rgba(91,101,217,.08);
+            border-color: rgba(91,101,217,.2)
+        }
+
+    /* Nav status dot — more visible */
+    [data-theme="light"] .nav-status {
+        color: #333
+    }
+
+    [data-theme="light"] .profile-location {
+        color: #777
+    }
+
+    /* Stats */
+    [data-theme="light"] .pstat-n {
+        color: #111
+    }
+
+    [data-theme="light"] .pstat-l {
+        color: #777
+    }
+
+    [data-theme="light"] .stat-num {
+        color: #111
+    }
+
+    [data-theme="light"] .stat-label {
+        color: #777
+    }
+
+    [data-theme="light"] .metric-n, [data-theme="light"] .metric-sfx {
+        color: #111
+    }
+
+    [data-theme="light"] .metric-item p {
+        color: #555
+    }
+
+    /* Experience */
+    [data-theme="light"] .timeline-dot {
+        background: var(--accent);
+        box-shadow: 0 0 8px rgba(91,101,217,.3)
+    }
+
+    [data-theme="light"] .timeline-line {
+        background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.04))
+    }
+
+    [data-theme="light"] .experience-date {
+        color: #888
+    }
+
+    /* Step numbers */
+    [data-theme="light"] .step-number {
+        color: var(--accent)
+    }
+
+    /* Stack item headings */
+    [data-theme="light"] .stack-item h4 {
+        color: var(--accent)
+    }
+
+    /* Bio text */
+    [data-theme="light"] .bio-text {
+        color: #444
+    }
+
+    [data-theme="light"] .skill-card p, [data-theme="light"] .work-card p, [data-theme="light"] .stack-item p {
+        color: #555
+    }
+
+    [data-theme="light"] .profile-bio {
+        color: #555
+    }
+
+    /* Section header */
+    [data-theme="light"] .section-header p {
+        color: #555
+    }
+
+    /* Footer text */
+    [data-theme="light"] .footer p, [data-theme="light"] .footer-tech {
+        color: #777
+    }
+
+    /* Eyebrow label */
+    [data-theme="light"] .eyebrow {
+        color: var(--accent)
+    }
+
+    /* Inline link */
+    [data-theme="light"] .inline-link {
+        color: var(--accent);
+        border-color: rgba(91,101,217,.3)
+    }
+
+    /* mm-role in drawer */
+    [data-theme="light"] .mm-role {
+        color: #777
+    }
+
+    [data-theme="light"] .mm-num {
+        color: #999
+    }
+
+    [data-theme="light"] .mm-link {
+        color: #444
+    }
+
+    [data-theme="light"] .mm-name {
+        color: #111
+    }
+
+    [data-theme="light"] .mm-badge {
+        background: rgba(22,163,74,.12);
+        border-color: rgba(22,163,74,.3);
+        color: #15803d
+    }
+
+    /* Cover tag toggle */
+    [data-theme="light"] .theme-toggle-mobile {
+        background: rgba(0,0,0,.07);
+        border-color: rgba(0,0,0,.15);
+        color: #444
+    }
 
 @media(prefers-reduced-motion: reduce) {
     *, *::before, *::after {
